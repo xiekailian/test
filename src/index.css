@@ -2,6 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -14,4 +24,49 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+/* ── Automotive Dark Theme Tokens ───────────────────────── */
+:root {
+  --auto-bg:         #0a0a0f;
+  --auto-surface:    #13131a;
+  --auto-surface-2:  #1c1c26;
+  --auto-border:     rgba(255,255,255,0.07);
+  --auto-border-hover: rgba(255,255,255,0.16);
+
+  /* category accents */
+  --ev-color:        #38bdf8;   /* sky-400   EV / Electric  */
+  --ev-glow:         rgba(56,189,248,.25);
+  --sc-color:        #f43f5e;   /* rose-500  Supercar      */
+  --sc-glow:         rgba(244,63,94,.25);
+  --jdm-color:       #fb923c;   /* orange-400 JDM          */
+  --jdm-glow:        rgba(251,146,60,.25);
+  --muscle-color:    #facc15;   /* yellow-400 Muscle       */
+  --muscle-glow:     rgba(250,204,21,.25);
+  --lux-color:       #a78bfa;   /* violet-400 Luxury       */
+  --lux-glow:        rgba(167,139,250,.25);
+  --suv-color:       #34d399;   /* emerald-400 SUV/Off-road */
+  --suv-glow:        rgba(52,211,153,.25);
+
+  --auto-text:       #f1f5f9;
+  --auto-muted:      #64748b;
+  --auto-subtle:     #334155;
+}
+
+/* smooth card glow on hover */
+.auto-card:hover {
+  box-shadow: 0 0 0 1px var(--auto-border-hover),
+              0 20px 60px -12px rgba(0,0,0,.7);
+}
+
+@keyframes shimmer {
+  0%   { transform: translateX(-100%); }
+  100% { transform: translateX(100%);  }
+}
+.shimmer::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,.04) 50%, transparent 100%);
+  animation: shimmer 3s infinite;
 }
