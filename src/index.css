@@ -28,35 +28,64 @@ body {
 
 /* ── Automotive Dark Theme Tokens ───────────────────────── */
 :root {
-  --auto-bg:         #0a0a0f;
-  --auto-surface:    #13131a;
-  --auto-surface-2:  #1c1c26;
-  --auto-border:     rgba(255,255,255,0.07);
+  --auto-bg:           #0a0a0f;
+  --auto-surface:      #13131a;
+  --auto-surface-2:    #1c1c26;
+  --auto-border:       rgba(255,255,255,0.07);
   --auto-border-hover: rgba(255,255,255,0.16);
 
-  /* category accents */
-  --ev-color:        #38bdf8;   /* sky-400   EV / Electric  */
-  --ev-glow:         rgba(56,189,248,.25);
-  --sc-color:        #f43f5e;   /* rose-500  Supercar      */
-  --sc-glow:         rgba(244,63,94,.25);
-  --jdm-color:       #fb923c;   /* orange-400 JDM          */
-  --jdm-glow:        rgba(251,146,60,.25);
-  --muscle-color:    #facc15;   /* yellow-400 Muscle       */
-  --muscle-glow:     rgba(250,204,21,.25);
-  --lux-color:       #a78bfa;   /* violet-400 Luxury       */
-  --lux-glow:        rgba(167,139,250,.25);
-  --suv-color:       #34d399;   /* emerald-400 SUV/Off-road */
-  --suv-glow:        rgba(52,211,153,.25);
+  --ev-color:     #38bdf8;
+  --ev-glow:      rgba(56,189,248,.25);
+  --sc-color:     #f43f5e;
+  --sc-glow:      rgba(244,63,94,.25);
+  --jdm-color:    #fb923c;
+  --jdm-glow:     rgba(251,146,60,.25);
+  --muscle-color: #facc15;
+  --muscle-glow:  rgba(250,204,21,.25);
+  --lux-color:    #a78bfa;
+  --lux-glow:     rgba(167,139,250,.25);
+  --suv-color:    #34d399;
+  --suv-glow:     rgba(52,211,153,.25);
 
-  --auto-text:       #f1f5f9;
-  --auto-muted:      #64748b;
-  --auto-subtle:     #334155;
+  --auto-text:    #f1f5f9;
+  --auto-muted:   #64748b;
+  --auto-subtle:  #334155;
+
+  /* ── Science / Academic Theme Tokens ─────────────────── */
+  --sci-bg-from:  #060a14;
+  --sci-bg-to:    #0d1631;
+  --sci-card:     #ffffff;
+  --sci-border:   #e2e8f4;
+
+  --bio-color:    #10b981;
+  --phy-color:    #6366f1;
+  --ai-color:     #8b5cf6;
+  --spc-color:    #06b6d4;
+  --med-color:    #f43f5e;
+  --mat-color:    #f59e0b;
+
+  --j-nature:     #e11d48;
+  --j-science:    #0ea5e9;
+  --j-cell:       #7c3aed;
+  --j-nejm:       #0369a1;
+  --j-jama:       #1d4ed8;
+  --j-prl:        #4f46e5;
 }
 
-/* smooth card glow on hover */
+/* Automotive card hover */
 .auto-card:hover {
   box-shadow: 0 0 0 1px var(--auto-border-hover),
               0 20px 60px -12px rgba(0,0,0,.7);
+}
+
+/* Science card hover */
+.sci-card {
+  transition: box-shadow .25s, transform .25s;
+}
+.sci-card:hover {
+  box-shadow: 0 8px 40px -8px rgba(99,102,241,.18),
+              0 2px 8px rgba(0,0,0,.06);
+  transform: translateY(-2px);
 }
 
 @keyframes shimmer {
@@ -70,3 +99,9 @@ body {
   background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,.04) 50%, transparent 100%);
   animation: shimmer 3s infinite;
 }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+.fade-up { animation: fadeUp .35s ease both; }
