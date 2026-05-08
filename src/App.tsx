@@ -2,6 +2,7 @@ import BentoBox from './components/BentoBox'
 import TravelTrendsFeed from './components/TravelTrendsFeed'
 import AutoTrendsFeed from './components/AutoTrendsFeed'
 import ScienceTrendsFeed from './components/ScienceTrendsFeed'
+import TopThreeCarPosts from './components/TopThreeCarPosts'
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       <TravelTrendsFeed />
       <AutoTrendsFeed />
       <ScienceTrendsFeed />
+      <TopThreeCarPosts />
     </div>
   )
 }
